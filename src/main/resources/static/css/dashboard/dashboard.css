@@ -1,0 +1,7 @@
+.outer-search-container {
+    display: flex;
+    font-family: 'Righteous', sans-serif;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 80vh;
+}

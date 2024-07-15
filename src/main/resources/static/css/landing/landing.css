@@ -1,0 +1,20 @@
+
+.main-content {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-box {
+    background-color: white;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-box p {
+    color: #1f2937;
+    text-align: center;
+    margin: 0;
+}

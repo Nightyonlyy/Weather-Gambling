@@ -1,0 +1,66 @@
+.outer-search-container {
+    display: flex;
+    font-family: 'Righteous', sans-serif;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 80vh;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #fff;
+    padding: 10px;
+}
+
+#search-input {
+    font-family: 'Righteous', sans-serif;
+    border: none;
+    outline: none;
+    background: none;
+    color: #fff;
+    font-size: 26px;
+    padding: 10px;
+    width: 30vw;
+    transition: width 0.3s ease-in-out; /* Add transition for smooth morph effect */
+}
+
+#search-input:focus {
+    width: 40vw; /* Increase the width when focused */
+}
+
+#search-input::placeholder {
+    color: rgba(255, 255, 255, 0.75); /* Change this to your desired color */
+    font-family: 'Righteous', sans-serif;
+    font-style: normal;
+    font-size: 26px;
+    opacity: 1; /* Ensure the color is fully opaque */
+}
+
+#search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin-left: 10px;
+}
+
+#results {
+    margin-top: 20px;
+    width: 80%;
+    max-width: 600px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#results ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#results li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
