@@ -8,6 +8,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     <link rel="stylesheet" th:href="@{/css/default.css}">
     <link rel="stylesheet" th:href="@{/css/dashboard/dashboard.css}">
+    <script src="/js/dashboard/betHandler.js"></script>
 </head>
 <body>
 <div class="header">
@@ -28,19 +29,95 @@
             <a href="/logout" style="color: #ef7171">Logout</a>
         </div>
     </div>
+</div>
+<h2 style="left: 3vw; position: relative;" id="current-selected-location">Aktuelles Wetter in: </h2>
+<div class="parent-container">
+    <div class="container">
+        <div class="current-weather now" id="current-weather">
+            <h2 style="text-align: center;">Aktuelle Daten</h2>
+            <p id="current-time">
+                Zeit: TIME
+            </p>
+            <p id="current-temperature">
+                Temperatur: TEMPERATURE
+            </p>
+            <p id="current-humidity">
+                Luftfeuchtigkeit: %
+            </p>
+            <p id="current-windspeed">
+                Windgeschwindigkeit: WINDSPEED
+            </p>
+            <!-- Aktuelle Wetterdaten -->
+        </div>
+        <div class="current-weather now">
+            <h2 style="text-align: center;">Andere Vorhersagen</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="current-weather hourly" id="hourly-weather">
+            <h2 style="text-align: center;">Stündliche Daten</h2>
+            <div class="data-grid">
+                <div class="data" id="hourly-titles">
+                    <p>Stunde</p>
+                    <p>°C</p>
+                    <p>%</p>
+                    <p>km/h</p>
+                </div>
+                <div class="data" id="hourly-data-0"></div>
+                <div class="data" id="hourly-data-1"></div>
+                <div class="data" id="hourly-data-2"></div>
+                <div class="data" id="hourly-data-3"></div>
+                <div class="data" id="hourly-data-4"></div>
+                <div class="data" id="hourly-data-5"></div>
+                <div class="data" id="hourly-data-6"></div>
+                <div class="data" id="hourly-data-7"></div>
+                <div class="data" id="hourly-data-8"></div>
+                <div class="data" id="hourly-data-9"></div>
+                <div class="data" id="hourly-data-10"></div>
+                <div class="data" id="hourly-data-11"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="current-weather bets" id="current-bets">
+            <h2 style="text-align: center;">Wetten</h2>
+        </div>
+    </div>
+</div>
+<div id="bet-overlay" class="overlay" style="display: none;" onclick="closeOverlay(event)">
+    <div class="overlay-content" onclick="event.stopPropagation()">
+        <h2>Wette platzieren</h2>
+        <div id="category-selection">
+            <button onclick="selectCategory('temperature')">Temperatur</button>
+            <button onclick="selectCategory('humidity')">Luftfeuchtigkeit</button>
+            <button onclick="selectCategory('windspeed')">Windgeschwindigkeit</button>
+        </div>
+        <div id="bet-form" style="display: none;">
+            <div id="temperature-fields" class="bet-fields" style="display: none; margin: 10px auto;">
+                <label for="temperature-value">Temperatur (°C):</label>
+                <input type="number" id="temperature-value">
+            </div>
+            <div id="humidity-fields" class="bet-fields" style="display: none; margin: 10px auto;">
+                <label for="humidity-value">Luftfeuchtigkeit (%):</label>
+                <input type="number" id="humidity-value">
+            </div>
+            <div id="windspeed-fields" class="bet-fields" style="display: none; margin: 10px auto;">
+                <label for="windspeed-value">Windgeschwindigkeit (km/h):</label>
+                <input type="number" id="windspeed-value">
+            </div>
+            <div id="bet-amount-field" class="bet-fields">
+                <label for="bet-amount">Punkte setzen:</label>
+                <input type="number" id="bet-amount">
+            </div>
+            <button onclick="submitBet()">Wette abschicken</button>
+        </div>
+        <button onclick="closeOverlay()">Schließen</button>
+    </div>
+</div>
 
-</div>
-<div class="container">
-    <div class="current-weather" id="current-weather">
-        <!-- Aktuelle Wetterdaten -->
-    </div>
-    <div class="hourly-weather" id="hourly-weather">
-        <!-- Stündliche Wetterdaten -->
-    </div>
-    <div class="daily-weather" id="daily-weather">
-        <!-- Tägliche Wetterdaten -->
-    </div>
-</div>
+<button class="place-bet" onclick="openOverlay()">
+    <h2>Bet</h2>
+</button>
 <script src="/js/default.js"></script>
 <script src="/js/dashboard/dashboard.js"></script>
 </body>
