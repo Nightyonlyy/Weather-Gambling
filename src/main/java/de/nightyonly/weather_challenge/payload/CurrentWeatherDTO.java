@@ -2,6 +2,7 @@ package de.nightyonly.weather_challenge.payload;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import de.nightyonly.weather_challenge.model.pojo.Location;
 import lombok.Data;
 
 
@@ -18,8 +19,8 @@ public class CurrentWeatherDTO {
     @JsonProperty("windspeed")
     private double windSpeed;
 
-    @JsonProperty("winddirection")
-    private int windDirection;
+    @JsonProperty("location")
+    private LocationDTO location;
 
 }
 

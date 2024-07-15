@@ -39,7 +39,7 @@ public class SecurityConfig {
                         .userInfoEndpoint(userInfo -> userInfo
                                 .userService(customOAuth2UserServiceBean())
                         )
-                        .defaultSuccessUrl("/dashboard", true)
+                        .defaultSuccessUrl("/search", true)
                 )
                 .logout(logout -> logout
                         .logoutUrl("/logout")

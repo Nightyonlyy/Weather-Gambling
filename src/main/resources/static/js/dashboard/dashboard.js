@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h2>Aktuelle Wetterdaten</h2>
             <p>Zeit: ${currentWeather.time}</p>
             <p>Temperatur: ${currentWeather.temperature}°C</p>
-            <p>Windgeschwindigkeit: ${currentWeather.windSpeed} km/h</p>
+            <p>Windgeschwindigkeit: ${currentWeather.windspeed} km/h</p>
         `;
     }
 

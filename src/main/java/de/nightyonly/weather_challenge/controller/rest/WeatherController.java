@@ -30,7 +30,7 @@ public class WeatherController {
     @GetMapping("/current")
     public CurrentWeatherDTO getCurrentWeather(Authentication authentication) {
         Users user = userService.findByUsername(authentication.getName()).orElseThrow(() -> new RuntimeException("User not found"));
-        return weatherService.getCurrentWeather(String.valueOf(user.getLatitude()), String.valueOf(user.getLongitude()));
+        return weatherService.getCurrentWeather(authentication.getName());
     }
 
     @GetMapping("/hourly")
