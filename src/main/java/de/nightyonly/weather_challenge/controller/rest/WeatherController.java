@@ -30,20 +30,20 @@ public class WeatherController {
     @GetMapping("/current")
     public CurrentWeatherDTO getCurrentWeather(Authentication authentication) {
         Users user = userService.findByUsername(authentication.getName()).orElseThrow(() -> new RuntimeException("User not found"));
-        return weatherService.getCurrentWeather(authentication.getName());
+        return weatherService.getCurrentWeather(user.getUsername());
     }
 
     @GetMapping("/hourly")
     public HourlyWeatherDTO getHourlyWeather(Authentication authentication) {
         Users user = userService.findByUsername(authentication.getName()).orElseThrow(() -> new RuntimeException("User not found"));
-        return weatherService.getHourlyWeather(String.valueOf(user.getLatitude()), String.valueOf(user.getLongitude()));
+        return weatherService.getHourlyWeather(user.getUsername());
     }
 
-    @GetMapping("/daily")
-    public DailyWeatherDTO getDailyWeather(Authentication authentication) {
-        Users user = userService.findByUsername(authentication.getName()).orElseThrow(() -> new RuntimeException("User not found"));
-        return weatherService.getDailyWeather(String.valueOf(user.getLatitude()), String.valueOf(user.getLongitude()));
-    }
+//    @GetMapping("/daily")
+//    public DailyWeatherDTO getDailyWeather(Authentication authentication) {
+//        Users user = userService.findByUsername(authentication.getName()).orElseThrow(() -> new RuntimeException("User not found"));
+//        return weatherService.getDailyWeather(user.getUsername());
+//    }
 }
 
 

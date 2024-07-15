@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.util.List;
 
+
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DailyWeatherDTO {
@@ -18,4 +19,11 @@ public class DailyWeatherDTO {
 
     @JsonProperty("temperature_2m_min")
     private List<Double> minTemperatures;
+
+//    @JsonProperty("relative_humidity_2m")
+//    private List<Double> humidities;
+//
+//    @JsonProperty("wind_speed_10m")
+//    private List<Double> windSpeeds;
 }
+
