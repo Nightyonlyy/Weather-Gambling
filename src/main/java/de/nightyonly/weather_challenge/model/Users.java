@@ -31,6 +31,9 @@ public class Users {
     @Column(name = "profile_pic")
     private String profilePic;
 
+    @Column(name = "coins")
+    private Integer coins;
+
     @Column(name ="cityname")
     private String city;
 
@@ -39,4 +42,5 @@ public class Users {
 
     @Column(name = "latitude")
     private Double latitude;
+
 }

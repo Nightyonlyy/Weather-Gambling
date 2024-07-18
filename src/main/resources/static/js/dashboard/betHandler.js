@@ -42,6 +42,18 @@ function submitBet() {
         location: location
     };
 
+    if ((betDTO.temperature === null || isNaN(betDTO.temperature)) &&
+        (betDTO.humidity === null || isNaN(betDTO.humidity)) &&
+        (betDTO.windSpeed === null || isNaN(betDTO.windSpeed))) {
+        alert('Please enter valid values for temperature, humidity, or windspeed.');
+        return;
+    }
+
+    if (betDTO.ammount === '' || isNaN(betDTO.ammount)) {
+        alert('Please enter a valid bet amount.');
+        return;
+    }
+
     fetch('/api/bet/place', {
         method: 'POST',
         headers: {
@@ -49,16 +61,16 @@ function submitBet() {
         },
         body: JSON.stringify(betDTO)
     })
-    .then(response => {
-        if (response.ok) {
-            alert('Bet placed successfully!');
-            closeOverlay();
-        } else {
-            alert('Failed to place bet.');
-        }
-    })
-    .catch(error => {
-        console.error('Error placing bet:', error);
-        alert('An error occurred while placing the bet.');
-    });
+        .then(response => {
+            if (response.ok) {
+                alert('Bet placed successfully!');
+                closeOverlay();
+            } else {
+                alert('Failed to place bet.');
+            }
+        })
+        .catch(error => {
+            console.error('Error placing bet:', error);
+            alert('An error occurred while placing the bet.');
+        });
 }

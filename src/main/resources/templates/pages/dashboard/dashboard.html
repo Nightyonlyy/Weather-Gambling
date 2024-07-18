@@ -17,18 +17,18 @@
         <a href="/ranking">Rangliste</a>
     </div>
     <h1>Weather Gambling</h1>
-    <div class="profile" onclick="this.classList.toggle('active')">
-        <span th:if="${user['given_name']}" th:text="${user['given_name']}"></span>
-        <span th:if="${user['name']}" th:unless="${user['given_name']}" th:text="${user['name']}"></span>
-        <img th:src="${user['picture']}" th:if="${user['picture']}" alt="Profilbild"/>
-        <img th:src="${user['avatar_url']}" th:if="${user['avatar_url']}" alt="Profilbild"/>
-        <div class="dropdown-menu">
-            <a href="/account">Konto</a>
-            <a href="/privacy-policy">Datenschutz</a>
-            <a href="/infos">Infos</a>
-            <a href="/logout" style="color: #ef7171">Logout</a>
-        </div>
+<div class="profile" onclick="this.classList.toggle('active')">
+    <span th:if="${user['given_name']}" th:text="${user['given_name']}"></span>
+    <span th:if="${user['name']}" th:unless="${user['given_name']}" th:text="${user['name']}"></span>
+    <img th:src="${user['avatar_url']}" th:if="${user['avatar_url']}" alt="Profilbild"/>
+    <img th:src="${user['picture']}" th:if="${user['picture']}" alt="Profilbild"/>
+    <div class="dropdown-menu">
+        <a href="/account">Konto</a>
+        <a href="/privacy-policy">Datenschutz</a>
+        <a href="/infos">Infos</a>
+        <a href="/logout" style="color: #ef7171">Logout</a>
     </div>
+</div>
 </div>
 <h2 style="left: 3vw; position: relative;" id="current-selected-location">Aktuelles Wetter in: </h2>
 <div class="parent-container">

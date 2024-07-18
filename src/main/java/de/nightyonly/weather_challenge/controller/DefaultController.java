@@ -74,12 +74,12 @@ public class DefaultController {
     @GetMapping("/dashboard")
     public String dashboard(Model model, OAuth2AuthenticationToken authentication) {
 
-        if(authentication == null ||!authentication.isAuthenticated()  || authentication.getAuthorities().isEmpty()){
+        if (authentication == null || !authentication.isAuthenticated() || authentication.getAuthorities().isEmpty()) {
             return "redirect:/login";
         }
 
         Map<String, Object> userAttributes = authentication.getPrincipal().getAttributes();
-
+        System.out.println("User attributes: " + userAttributes);
 
         Optional<Users> optionalUser = userService.findByUsername(authentication.getName());
         if (optionalUser.isPresent()) {
@@ -92,6 +92,7 @@ public class DefaultController {
 
         return "pages/dashboard/dashboard";
     }
+
 
 
 

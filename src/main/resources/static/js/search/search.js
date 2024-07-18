@@ -1,15 +1,30 @@
-
-
 document.getElementById('search-input').addEventListener('input', function() {
     let query = this.value;
 
-    // Perform the request to the backend
-    fetch(`/api/location/search?query=${query}`)
-        .then(response => response.json())
-        .then(data => {
-            displayResults(data);
-        })
-        .catch(error => console.error('Error:', error));
+    // Check if the input length is at least 5 characters
+    if (query.length >= 5) {
+        // Perform the request to the backend
+        fetch(`/api/location/search?query=${query}`)
+            .then(response => response.json())
+            .then(data => {
+                displayResults(data);
+            })
+            .catch(error => console.error('Error:', error));
+    }
+});
+
+document.getElementById('search-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        let query = this.value;
+
+        // Perform the request to the backend
+        fetch(`/api/location/search?query=${query}`)
+            .then(response => response.json())
+            .then(data => {
+                displayResults(data);
+            })
+            .catch(error => console.error('Error:', error));
+    }
 });
 
 function displayResults(results) {
@@ -32,14 +47,10 @@ function displayResults(results) {
 
 function selectLocation(location) {
     document.getElementById('search-input').value = location.display_name;
-    document.getElementById('save-location').style.display = 'block';
 
-    document.getElementById('save-location').addEventListener('click', function() {
-        saveLocation(location);
-    });
+    // Directly save the location
+    saveLocation(location);
 }
-
-
 
 function saveLocation(location) {
     fetch('/api/user/updateCity', {
